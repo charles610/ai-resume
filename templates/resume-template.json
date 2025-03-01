@@ -1,0 +1,14 @@
+[
+    {
+        "id": "basic-template",
+        "name": "基础简洁风",
+        "html": "<div class='resume'><h1>{{name}}</h1><p>电话：{{phone}} | 邮箱：{{email}}</p><hr><h2>个人简介</h2><p>{{content}}</p></div>",
+        "preview": "https://example.com/basic-template.png"
+    },
+    {
+        "id": "modern-template",
+        "name": "现代科技风",
+        "html": "<div class='resume-modern'><h1>{{name}}</h1><p>联系方式：{{phone}} | {{email}}</p><hr><div>{{content}}</div></div>",
+        "preview": "https://example.com/modern-template.png"
+    }
+]

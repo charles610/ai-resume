@@ -1,0 +1,15 @@
+{
+    "name": "ai-resume-frontend",
+    "version": "1.0.0",
+    "scripts": {
+      "serve": "vue-cli-service serve"
+    },
+    "dependencies": {
+      "axios": "^0.27.2",
+      "vue": "^3.2.0"
+    },
+    "devDependencies": {
+      "@vue/cli-service": "^5.0.0"
+    }
+  }
+  
