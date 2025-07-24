@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{name}} - 个人简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', 'SimSun', serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .resume-container {
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+        }
+        
+        .resume-header {
+            padding: 40px;
+            border-bottom: 2px solid #333;
+            text-align: center;
+        }
+        
+        .resume-header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .resume-header h2 {
+            font-size: 18px;
+            color: #777;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .resume-content {
+            padding: 40px;
+        }
+        
+        h3 {
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="resume-header">
+            <h1>{{name}}</h1>
+            <h2>{{position}}</h2>
+            <div class="contact-info">
+                {{phone}} | {{email}}
+            </div>
+        </div>
+        
+        <div class="resume-content">
+            {{content}}
+        </div>
+        
+        <div class="footer">
+            此简历由AI简历生成器生成 - 更新于 <span id="current-date"></span>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('zh-CN');
+    </script>
+</body>
+</html>
