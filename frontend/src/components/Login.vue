@@ -391,24 +391,33 @@ async function handleRegister() {
   min-height: 100vh;
   background-color: #f5f5f5;
   font-family: 'Arial', sans-serif;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .login-card {
-  width: 400px;
-  padding: 30px;
+  width: 420px;
+  padding: 35px;
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
 h2 {
   text-align: center;
   color: #333;
   margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 label {
@@ -416,20 +425,45 @@ label {
   margin-bottom: 8px;
   font-weight: 500;
   color: #555;
+  font-size: 15px;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
 }
 
 input {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
+  padding-right: 40px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 16px;
-  transition: border-color 0.3s;
+  transition: all 0.3s;
+  background-color: #f9f9f9;
 }
 
 input:focus {
   border-color: #4a90e2;
   outline: none;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.input-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s;
+  font-size: 18px;
+}
+
+.input-icon:hover {
+  color: #4a90e2;
 }
 
 .form-actions {
@@ -438,44 +472,64 @@ input:focus {
 
 .login-button, .register-button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   background-color: #4a90e2;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
+  box-shadow: 0 4px 6px rgba(74, 144, 226, 0.2);
 }
 
 .login-button:hover, .register-button:hover {
   background-color: #3a7bc8;
+  box-shadow: 0 6px 8px rgba(74, 144, 226, 0.25);
+  transform: translateY(-2px);
 }
 
 .login-button:disabled, .register-button:disabled {
   background-color: #a0c0e8;
   cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
 
 .error-message {
   margin-top: 15px;
   color: #e74c3c;
   text-align: center;
+  font-size: 14px;
+  padding: 8px;
+  background-color: rgba(231, 76, 60, 0.1);
+  border-radius: 4px;
+}
+
+.field-error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 6px;
+  padding-left: 2px;
 }
 
 .register-link {
-  margin-top: 20px;
+  margin-top: 25px;
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
   color: #666;
 }
 
 .register-link a {
   color: #4a90e2;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
 .register-link a:hover {
+  color: #3a7bc8;
   text-decoration: underline;
 }
 
@@ -485,35 +539,165 @@ input:focus {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .register-card {
-  width: 400px;
-  padding: 30px;
+  width: 420px;
+  padding: 35px;
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .cancel-button {
   width: 100%;
-  padding: 12px;
-  background-color: #e0e0e0;
-  color: #333;
+  padding: 14px;
+  background-color: #f0f0f0;
+  color: #555;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .cancel-button:hover {
-  background-color: #d0d0d0;
+  background-color: #e0e0e0;
+}
+
+.remember-me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: relative;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  margin-right: 8px;
+  transition: all 0.2s;
+  border: 1px solid #ddd;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #e0e0e0;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #4a90e2;
+  border-color: #4a90e2;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.forgot-password {
+  font-size: 14px;
+  color: #4a90e2;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.forgot-password:hover {
+  color: #3a7bc8;
+  text-decoration: underline;
+}
+
+.password-strength {
+  margin-top: 10px;
+}
+
+.strength-text {
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.strength-bar {
+  height: 5px;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.strength-indicator {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s, background-color 0.3s;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .login-card, .register-card {
+    width: 90%;
+    padding: 25px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  input, .login-button, .register-button, .cancel-button {
+    padding: 12px;
+  }
 }
 </style>
